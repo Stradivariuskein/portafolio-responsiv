@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio Alan Luque</title>
+
+    <style>
+
+        :root {
+        --bg-dark-op: rgba(7, 7, 7, 0.1);
+        --bg-dark: rgba(7, 7, 7, 0.829);
+
+        }
+        
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0;
+            color: antiquewhite;
+            font-family: 'Mulish', sans-serif;
+            font-size: 18px;
+        }
+
+        .background {
+            
+            margin: 0 0;
+            z-index: -1;
+            position:fixed;
+            height: 100vh;
+            width: 100vw;
+            background: 
+            linear-gradient(12deg, rgb(31, 3, 77), var(--bg-dark-op) 15%),
+            linear-gradient(85deg, rgb(31, 3, 77), var(--bg-dark-op) 15%),
+            linear-gradient(275deg, rgb(31, 3, 77), var(--bg-dark-op) 15%),
+            linear-gradient(342deg, rgb(31, 3, 77), var(--bg-dark-op) 15%),
+            linear-gradient(0deg, rgb(31, 3, 77), var(--bg-dark) 5%);
+        }
+
+
+
+        nav {
+            box-sizing: border-box;
+            height: 8vh;
+            width: 100% ;
+            display: flex;
+            position: sticky;
+            top: 0;
+            justify-content: space-evenly;
+            align-items: center;
+            /* background-color: rgb(15, 8, 27, 0.5); */
+            backdrop-filter: blur(5px);       
+            border-radius: 10px;
+            z-index: 1;
+        }
+
+        nav::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background-color:  rgb(15, 8, 27, 0.7);; /* Puedes ajustar el color de fondo según tus necesidades */
+            filter: blur(10px); /* Ajusta el valor según el nivel de desenfoque deseado */
+            z-index: -1; /* Coloca el elemento secundario detrás del contenido del elemento principal */
+        }
+
+        nav a {
+            text-decoration: none;
+            background-color: rgba(255, 255, 255, 0.767);
+            color: black;
+            border-radius: 20px;
+            padding: 10px;
+            font-weight: bold;
+            box-shadow: 0px 0px 10px 1px black;
+        }
+
+        .img-perfil {
+            height: 20vh;
+            border-radius: 50%;
+        }
+
+        .div-img {
+            display: contents;
+        }
+        .img-project {
+            width: 95%;
+        }
+        
+        .img-virustotal {
+            width: 42.5vw;
+        }
+
+        .img-browser {
+            width: 95%;
+        }
+
+        .home {
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            flex-direction: row;
+        }
+
+        /* a:visited {
+            color: antiquewhite;
+        } */
+
+        .article-project {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            /* background-color: rgb(18, 10, 34, 0.7); */
+            grid-column: span 2; /* Ocupa dos columnas */
+            border-radius: 10px;
+            backdrop-filter: blur(5px); 
+            justify-content: space-between;
+            animation: reveal linear both;
+            animation-timeline: view();
+            animation-range: entry 10% cover 25%;
+
+        }
+
+        .article-project-content {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+
+        .article-project-content h3 {
+            text-align: center;
+        }
+
+
+        .article-project::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background-color: rgb(18, 10, 34, 0.7);
+            filter: blur(2px);
+            z-index: -1;
+            border-radius: 51px;
+        }
+
+        @keyframes reveal {
+            from {
+                opacity: 0;
+                filter: blur(5px);
+                
+            }
+
+            to {
+                opacity: 1;
+                filter: blur(0px);
+            }
+        } 
+
+        article:nth-child(2),
+        article:nth-child(3) {
+            grid-column: span 1;
+            grid-row: 2; /* Coloca los elementos en la segunda fila */
+        }
+
+        .projects {
+            
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            gap: 10px;
+        }
+
+        section {
+            width: 85vw;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            
+        }
+
+        /* responsive media */
+        @media (max-width: 1000px) {
+            /* Estilos específicos para cuando el ancho del viewport es menor a 400px */
+            article:nth-child(2) {
+            grid-column: span 2;
+            grid-row: 2; 
+        }
+        
+        article:nth-child(3) {
+            grid-column: span 2;
+            grid-row: 3; 
+        }
+
+        .article-study {
+            flex-direction: column;
+        }
+
+        }
+        svg {
+            height: 75px;
+        }
+
+        aside {
+            display: flex;
+            flex-wrap: wrap;
+            width: 300px;
+            justify-content: space-evenly;
+        }
+        
+        .skill {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        h1 {
+            font-family: 'Fira Sans', sans-serif;
+            font-size: 50px;
+        }
+
+        h2 {
+            font-size: 38px;
+        }
+        
+        small {
+            font-size: 14px;
+            color: rgba(250, 235, 215, 0.795);
+        }
+
+        p {
+            font-size: 24px;
+            margin: 15px;
+        }
+
+        article footer {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            padding-bottom: 30px;
+        }
+
+        .div-study {
+            max-height: 70vh;
+            width: 85vw;
+            overflow: auto;
+        }
+
+        /* Estilos para WebKit (Chrome y Safari) */
+        .div-study::-webkit-scrollbar {
+            width: 12px; /* Ajusta el ancho de la barra */
+        }
+
+        .div-study::-webkit-scrollbar-thumb {
+            background-color: #c7c7c7; /* Color de la barra de desplazamiento */
+            border-radius: 10px;
+        }
+
+        .div-study::-webkit-scrollbar-track {
+            background-color: #f1f1f100; /* Color del fondo de la barra de desplazamiento */
+        }
+
+        .div-study ul {
+            display: flex;
+            flex-direction: column;
+            flex-wrap: nowrap;
+            align-items: flex-start;
+            gap: 110px;
+        }
+
+        .div-study ul > :last-child {
+            margin-bottom: 150px;
+        }
+
+        .article-study {
+            display: flex;
+        }
+
+        .article-study p{
+            
+            animation: reveal-study linear both;
+            animation-timeline: view();
+            animation-range: entry 35% cover 90%;
+            
+        }
+
+        
+
+        @keyframes reveal-study {
+            0% {
+                opacity: 0;
+                filter: blur(5px);
+                scale: 0%;
+                
+            }
+
+            35% {
+                opacity: 1;
+                filter: blur(0px);
+                scale: 100%;
+            }
+
+            85% {
+                opacity: 1;
+                filter: blur(0px);
+                scale: 100%;
+            }
+            100% {
+                opacity: 0;
+                filter: blur(5px);
+                scale: 0%;
+                
+            }
+        } 
+
+        .article-study header {
+            display: flex;
+            flex-direction: column;
+            flex-wrap: nowrap;
+            align-items: flex-start;
+            min-width: 25vw; /* Puedes ajustar el valor según el ancho mínimo deseado */
+            margin-left: 20px;
+            
+        }
+
+
+
+        ul {
+            list-style-type: none;
+        } 
+
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* The actual timeline (the vertical ruler) */
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: white;
+            bottom: 0;
+            z-index: -1;
+            height: 100%;
+            left: 41px;
+        }
+        
+
+        /* .circle {
+            position: relative;
+            width: 25px;
+            height: 25px;
+            left: -12px;
+            background-color: #7755ff;
+            border: 4px solid white;
+            top: 20px;
+            border-radius: 50%;
+            z-index: 1;
+        } */
+        .timeline li::before {
+            content: '';
+            position: relative;
+            padding: 0 12.5px; /* Ajusta el ancho del círculo ajustando el padding */
+            width: 25px;
+            height: 25px;
+            left: -12px;
+            background-color: #7755ff;
+            border: 4px solid white;
+            top: 20px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+        
+
+    </style>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@200&display=swap" rel="stylesheet">
+<body>
+    <div class="background"></div>
+
+    
+    <nav>
+        <a href="#home">Inicio</a>
+        <a href="#projects">Proyectos</a>
+        <a href="#studi">Estudios</a>
+        <a href="">Contactarme</a>
+    </nav>
+
+    <h1 id="home">Desarrollador Backend | Python</h1>
+
+    <main>
+        <section class="home">
+
+            
+            <div>
+                <div class="img-perfil">
+                    <img class="img-perfil" src="perfil.jpg" alt="Foto de Alan Luque">
+                </div>
+                <div>
+                    <p>Desarrollador autodidacta con tres años de trayectoria.</p>
+                </div>
+            </div>
+            <aside>
+                <div class="skill">
+                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="75" height="75" viewBox="0 0 48 48">
+                        <path fill="#0277BD" d="M24.047,5c-1.555,0.005-2.633,0.142-3.936,0.367c-3.848,0.67-4.549,2.077-4.549,4.67V14h9v2H15.22h-4.35c-2.636,0-4.943,1.242-5.674,4.219c-0.826,3.417-0.863,5.557,0,9.125C5.851,32.005,7.294,34,9.931,34h3.632v-5.104c0-2.966,2.686-5.896,5.764-5.896h7.236c2.523,0,5-1.862,5-4.377v-8.586c0-2.439-1.759-4.263-4.218-4.672C27.406,5.359,25.589,4.994,24.047,5z M19.063,9c0.821,0,1.5,0.677,1.5,1.502c0,0.833-0.679,1.498-1.5,1.498c-0.837,0-1.5-0.664-1.5-1.498C17.563,9.68,18.226,9,19.063,9z"></path><path fill="#FFC107" d="M23.078,43c1.555-0.005,2.633-0.142,3.936-0.367c3.848-0.67,4.549-2.077,4.549-4.67V34h-9v-2h9.343h4.35c2.636,0,4.943-1.242,5.674-4.219c0.826-3.417,0.863-5.557,0-9.125C41.274,15.995,39.831,14,37.194,14h-3.632v5.104c0,2.966-2.686,5.896-5.764,5.896h-7.236c-2.523,0-5,1.862-5,4.377v8.586c0,2.439,1.759,4.263,4.218,4.672C19.719,42.641,21.536,43.006,23.078,43z M28.063,39c-0.821,0-1.5-0.677-1.5-1.502c0-0.833,0.679-1.498,1.5-1.498c0.837,0,1.5,0.664,1.5,1.498C29.563,38.32,28.899,39,28.063,39z"></path>
+                        </svg>
+                    <small>Python</small>
+                </div>
+                <div class="skill">
+                    <svg height="75" preserveAspectRatio="xMidYMid" viewBox="0 0 256 326" width="75" xmlns="http://www.w3.org/2000/svg">
+                        <g fill="#2ba977"><path d="m114.78426 0h53.277999v244.191113c-27.290404 5.162172-47.381078 7.193079-69.117404 
+                        7.193079-65.0718413-.067924-98.944855-29.139102-98.944855-84.972068 0-53.795267 35.9300792-88.7078508 91.6079875-88.7078508 
+                        8.6396755 0 15.2222855.6792329 23.1762725 2.7169325zm1.867183 124.426648c-6.239766-2.0377-11.38243-2.716934-17.9650395-2.716934-26.9475597 
+                        0-42.5126892 16.437443-42.5126892 45.243722 0 28.045536 14.8794413 43.532053 42.1698442 43.532053 5.8969215 0 10.6967405-.332825 18.3078845-1.351675z"/>
+                        <path d="m255.186899 84.2605714v122.2619686c0 42.105664-3.154168 62.353604-12.410963 79.809896-8.639675 16.783852-20.022104 27.366305-43.541221 
+                        39.055907l-49.438144-23.297697c23.519117-10.928862 34.901547-20.587558 42.169846-35.326917 7.611142-15.072184 10.011052-32.528476 
+                        10.011052-78.444637v-104.0585206z"/><path d="m196.608 0h53.277999v54.1348831h-53.277999z"/></g></svg>
+                        <small>Django</small>
+                </div>
+                <div class="skill">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-sql" width="75" height="75" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M12 8a2 2 0 0 1 2 2v4a2 2 0 1 1 -4 0v-4a2 2 0 0 1 2 -2z" />
+                        <path d="M17 8v8h4" />
+                        <path d="M13 15l1 1" />
+                        <path d="M3 15a1 1 0 0 0 1 1h2a1 1 0 0 0 1 -1v-2a1 1 0 0 0 -1 -1h-2a1 1 0 0 1 -1 -1v-2a1 1 0 0 1 1 -1h2a1 1 0 0 1 1 1" />
+                      </svg>
+                    <small>SQL</small>
+                </div>
+                <div class="skill">
+                    
+                    <svg width="75" height="75" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6 28L4 3H28L26 28L16 31L6 28Z" fill="#E44D26"/>
+                    <path d="M26 5H16V29.5L24 27L26 5Z" fill="#F16529"/>
+                    <path d="M9.5 17.5L8.5 8H24L23.5 11H11.5L12 14.5H23L22 24L16 26L10 24L9.5 19H12.5L13 21.5L16 22.5L19 21.5L19.5 17.5H9.5Z" fill="white"/>
+                    </svg>
+                    <small>HTML</small>
+                </div>
+                <div class="skill">
+                    
+                    <svg width="75" height="75" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6 28L4 3H28L26 28L16 31L6 28Z" fill="#1172B8"/>
+                    <path d="M26 5H16V29.5L24 27L26 5Z" fill="#33AADD"/>
+                    <path d="M19.5 17.5H9.5L9 14L17 11.5H9L8.5 8.5H24L23.5 12L17 14.5H23L22 24L16 26L10 24L9.5 19H12.5L13 21.5L16 22.5L19 21.5L19.5 17.5Z" fill="white"/>
+                    </svg>
+                    <small>CSS</small>
+                </div>
+            </aside>
+
+            
+        </section>
+        <section id="projects">
+
+            <h2>Proyectos</h2>
+            <div class="projects">
+                <article class="article-project">
+                    <div class="article-project-content">
+                        <head>
+                            <h3>Web para gestión de listas de precios</h3>
+                        </head>
+                        
+                        <div class="div-img"><img class="img-project" src="https://raw.githubusercontent.com/Stradivariuskein/web-admin-luque/master/server/imgs/ilustration.png" alt="imagen ilustrativa de la web"></div>
+                    </div>
+                    <div class="article-project-content">
+                        <div>
+                            <p>Web para la gestión de listas de precios en formato excel.</p>
+                            <p>Los precios son obtenidos de un archivo generado por otro programa</p>
+                            <p>las listas se actualizaran y se subirán a Google drive en tres simple paso</p>
+                        </div>
+                        <footer>
+                            <p>Tecnologías utilizadas:</p>
+                            <small>Python | Django | HTML | CSS | Javascript | API Google</small>
+                        </footer>
+                    </div>
+                </article>
+
+                <article class="article-project">
+                    <div class="article-project-content">
+                        <head>
+                            <h3>Right click VirusTotal</h3>
+                        </head>
+                        
+                        <div class="div-img"><img class="img-project" src="https://raw.githubusercontent.com/Stradivariuskein/gui-virustotal/master/imagen-ilustrativa.png" alt="imagen ilustrativa del programa"></div>
+                    </div>
+                    <div class="article-project-content">
+                        <div >
+                            <p>Escanea cualquier archivo en busca de amenazas con tan solo el click derecho.</p>
+                            <p>Utiliza la API de virus total para obtener los resultados y mostrarlos en una ventana.</p>                    
+                        </div>
+                        <footer>
+                            <p>Tecnologías utilizadas:</p>
+                            <small>Python | Tkinter</small>
+                        </footer>
+                    </div>
+                </article>
+
+                <article class="article-project">
+                    <div class="article-project-content">
+                        <head>
+                            <h3>Buscador de codigos</h3>
+                        </head>
+                        
+                        <div class="div-img"><img class="img-browser" src="https://raw.githubusercontent.com/Stradivariuskein/gui-buscar-codigo-luque/master/ilustration.png" alt="imagen ilustrativa del programa"></div>
+                    </div>
+                    <div class="article-project-content">
+                        <div>
+                            <p>Buscador de códigos para artículos según la descripción.</p>
+                            <p>Puedes utiliza varias palabras sin importar el orden.</p>                    
+                        </div>
+                        <footer>
+                            <p>Tecnologías utilizadas:</p>
+                            <small>Python | Tkinter</small>
+                        </footer>
+                    </div>
+                </article>
+            </div>
+            
+
+        </section>
+        <section class="Studi" id="studi">
+            <h2>Estudios</h2>
+            <div class="div-study">
+                <ul class="timeline">
+                    
+                    <li class="">
+                        <div class="circle"></div>
+                        <article class="article-study">
+                            <header>
+                            <h3>Ing. en informática</h3>
+                            <small>Universidad nacional de la matanza</small>
+                            <br>
+                            <small>2014 - 2015</small>
+                        </header>
+                        <p>Primer año de la carrera de Ing. en informática. Lenguaje "C", y lógica de programación</p>
+                        </article>
+                    </li>
+                    
+                    <li class="">
+                        <div class="circle"></div>
+                        <article class="article-study">
+                            <header>
+                            <h3>Python</h3>
+                            <small>Autodidacta</small>
+                            <br>
+                            <small>2020 - 2021</small>
+                        </header>
+                        <p>Principios del lenguaje y todas sus particularidades a profundidad, pasando desde objetos, módulos, decoradores y bibliotecas como falsk, openpyxl, tkinter.</p>
+                        </article>
+                    </li>
+                    
+                    <li class="">
+                        <div class="circle"></div>
+                        <article class="article-study">
+                            <header>
+                            <h3>Desarrollo web | Ciberseguridad</h3>
+                            <small>Autodidacta</small>
+                            <br>
+                            <small>2022 - 2023</small>
+                        </header>
+                        <p>Fundamentos del desarrollo web, estructura de una web, funcionamiento del protocolo HTTP, verbos HTTP, peticiones asíncronas y vulnerabilidades.</p>
+                        </article>
+                    </li>
+                    
+                    <li class="">
+                        <div class="circle"></div>
+                        <article class="article-study">
+                            <header>
+                            <h3>Bash | Ciberseguridad</h3>
+                            <small>Autodidacta</small>
+                            <br>
+                            <small>Enero 2023 - Mayo 2023</small>
+                        </header>
+                        <p>Practiqué hacking web, haciendo máquinas en HackTheBox.com y otros sitios sobre linux, Python scripting y bash scripting, detectar vulnerabilidades más comunes.</p>
+                        </article>
+                    </li>
+                    
+                    <li class="">
+                        <div class="circle"></div>
+                        <article class="article-study">
+                            <header>
+                            <h3>Django</h3>
+                            <small>Coderhouse</small>
+                            <br>
+                            <small>Mayo 2023 - Agosto 2023</small>
+                        </header>
+                        <p>Framework Django para la creación de webs y maquetación HTML.</p>
+                        </article>
+                    </li>
+                    
+                    <li class="">
+                        <div class="circle"></div>
+                        <article class="article-study">
+                            <header>
+                            <h3>Estudios actuales</h3>
+                            <small>Autodidacta</small>
+                            <br>
+                            <small>Agosto 2023</small>
+                        </header>
+                        <p>CSS, JavaScript, langchain, entre otros.</p>
+                        </article>
+                    </li>
+                </ul>
+
+            </div>
+
+        </section>
+        <section class="contact">
+
+        </section>
+    </main>
+    <footer>
+
+    </footer>
+    
+</body>
+</html>
