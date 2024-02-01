@@ -91,42 +91,8 @@
         box-sizing: border-box;
     }
 
-    /* responsive media */
-    @media (max-width: 400px) {
-        nav {
-            padding-left: 25px;
-        }
-    }
 
-    @media (max-width: 1000px) {
-        /* Estilos específicos para cuando el ancho del viewport es menor a 1000px */
 
-        .skill {
-            flex-direction: column !important;
-        }
-        article:nth-child(2) {
-        grid-column: span 2;
-        grid-row: 2; 
-    }
-    
-    article:nth-child(3) {
-        grid-column: span 2;
-        grid-row: 3; 
-    }
-
-    .article-study {
-        flex-direction: column;
-    }
-
-    .social-networks {
-        flex-direction: row !important;
-    }
-
-    .container-img-networks {
-        flex-direction: column !important;
-    }
-
-    }
 
     h1 {
         font-family: 'Fira Sans', sans-serif;
@@ -214,7 +180,7 @@
         grid-column: span 2; /* Ocupa dos columnas */
         border-radius: 10px;
         backdrop-filter: blur(5px); 
-        justify-content: space-between;
+        /* justify-content: space-between; */
         animation: reveal linear both;
         animation-timeline: view();
         animation-range: entry 10% cover 25%;
@@ -226,6 +192,7 @@
         align-items: center;
         flex-direction: column;
         justify-content: space-between;
+        height: 100%;
     }
 
 
@@ -238,13 +205,10 @@
     }
     .img-project {
         width: 95%;
-    }
-    
-    .img-virustotal {
-        width: 42.5vw;
+        height: 95%;
     }
 
-    .img-browser {
+    .img-web-excel {
         width: 95%;
     }
 
@@ -544,4 +508,42 @@
 
     .msj .input-msj::-webkit-scrollbar-track {
         background-color: #f1f1f100; /* Color del fondo de la barra de desplazamiento */
+    }
+
+        /* responsive media */
+    @media (max-width: 400px) {
+        nav {
+            padding-left: 25px;
+        }
+    }
+
+    @media (max-width: 1000px) {
+        /* Estilos específicos para cuando el ancho del viewport es menor a 1000px */
+
+    .skill {
+        flex-direction: column !important;
+    }
+    
+    article:nth-child(2) {
+        grid-column: span 2;
+        grid-row: 2; 
+    }
+    
+    article:nth-child(3) {
+        grid-column: span 2;
+        grid-row: 3; 
+    }
+
+    .article-study {
+        flex-direction: column;
+    }
+
+    .social-networks {
+        flex-direction: row !important;
+    }
+
+    .container-img-networks {
+        flex-direction: column !important;
+    }
+
     }
