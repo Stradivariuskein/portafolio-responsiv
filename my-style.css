@@ -1,6 +1,11 @@
 :root {
     --bg-dark-op: rgba(7, 7, 7, 0.1);
     --bg-dark: rgba(7, 7, 7, 0.829);
+    --blue: #0098c0;
+    --dark-violet: rgb(31, 3, 77);
+    --violet: #775dc0;
+    --green: #77dd77;
+    --dark-golden: #af864f;
 
     }
     
@@ -22,11 +27,11 @@
         height: 100%;
         width: 100%;
         background: 
-        linear-gradient(12deg, rgb(31, 3, 77), var(--bg-dark-op) 15%),
-        linear-gradient(85deg, rgb(31, 3, 77), var(--bg-dark-op) 15%),
-        linear-gradient(275deg, rgb(31, 3, 77), var(--bg-dark-op) 15%),
-        linear-gradient(342deg, rgb(31, 3, 77), var(--bg-dark-op) 15%),
-        linear-gradient(0deg, rgb(31, 3, 77), var(--bg-dark) 5%);
+        linear-gradient(12deg, var(--dark-violet), var(--bg-dark-op) 15%),
+        linear-gradient(85deg, var(--dark-violet), var(--bg-dark-op) 15%),
+        linear-gradient(275deg, var(--dark-violet), var(--bg-dark-op) 15%),
+        linear-gradient(342deg, var(--dark-violet), var(--bg-dark-op) 15%),
+        linear-gradient(0deg, var(--dark-violet), var(--bg-dark) 5%);
     }
 
     nav::-webkit-scrollbar {
@@ -35,12 +40,12 @@
     }
 
     nav::-webkit-scrollbar-thumb {
-        background-color: #c7c7c700;
+        background-color: transparent;
 
     }
 
     nav::-webkit-scrollbar-track {
-        background-color: #f1f1f100; /* Color del fondo de la barra de desplazamiento */
+        background-color: transparent; /* Color del fondo de la barra de desplazamiento */
     }
 
 
@@ -67,9 +72,9 @@
         right: 0;
         bottom: 0;
         left: 0;
-        background-color:  rgb(15, 8, 27, 0.7);; /* Puedes ajustar el color de fondo según tus necesidades */
-        filter: blur(10px); /* Ajusta el valor según el nivel de desenfoque deseado */
-        z-index: -1; /* Coloca el elemento secundario detrás del contenido del elemento principal */
+        background-color:  rgb(15, 8, 27, 0.7); 
+        filter: blur(10px);
+        z-index: -1; 
     }
 
     nav a {
@@ -98,10 +103,16 @@
         font-family: 'Fira Sans', sans-serif;
         font-size: 50px;
         margin: 25px;
+        color: var(--dark-golden);
     }
 
     h2 {
         font-size: 38px;
+        color: var(--violet)
+    }
+
+    h3 {
+        color: var(--blue)
     }
     
     small {
@@ -168,7 +179,7 @@
         display: flex;
         align-items: center;
         flex-direction: row;
-        gap: 20px;
+        gap: 56px;
     }
 
     .social-networks {
@@ -226,8 +237,21 @@
     .img-web-excel {
         width: 95%;
     }
-
-
+    .container-btn {
+        display: flex;
+        justify-content: center;
+        height: 100%;
+        align-items: end;
+    }
+    .github-btn {
+        border-radius: 20px;
+        box-sizing: border-box;
+        padding: 10px;
+        background-color: rgb(76, 0, 255);
+        color: antiquewhite;
+        text-decoration: none;
+        box-shadow: 3px 3px 15px black;
+    }
 
     .article-project::before {
         content: "";
@@ -276,7 +300,9 @@
         width: 85vw;
         overflow: auto;
     }
-
+    .institute {
+        color: var(--green);
+    }
     /* Estilos para WebKit (Chrome) */
     .div-study::-webkit-scrollbar {
         width: 12px; 
@@ -529,6 +555,9 @@
     @media (max-width: 413px) {
         nav {
             padding-left: 100px;
+        }
+        .container-btn {
+            min-height: none;
         }
     }
 
